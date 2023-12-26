@@ -378,6 +378,9 @@ div.cv:hover{
 .col2-subco2{
     flex-basis: 35%;
 }
+.col2-subco2 ul li a{
+    color:white;
+}
 .col2-subcol h3,.col2-subco2 h3{
     margin-bottom: 10px;
 }
@@ -591,6 +594,7 @@ div.cv:hover{
 #projects .project-box p {
     padding: 5px;
     padding-bottom: 10px;
+    width: 300px;
 
 }
 #projects .project-box a{
