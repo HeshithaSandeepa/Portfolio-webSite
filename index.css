@@ -273,7 +273,7 @@ div.cv:hover{
     position: absolute;
     width: 380px;
     height: 380px;
-    background: #fff;
+    background: rgb(0, 0, 0);
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -296,8 +296,9 @@ div.cv:hover{
 #header .home-img .glowing-circle .image img{
     max-width: 350px;
     object-fit: cover;
-    margin-top: -15px;
-    margin-left: 10px;
+    background: rgb(0, 0, 0);
+    margin-top: -11px;
+    margin-left: 20px;
 }
 #header .home-img .glowing-circle span{
     position: absolute;
