@@ -743,10 +743,15 @@ div.cv:hover{
     color: #0ca118;
 }
 .contact-form{
-    width :40%;
+    width:40%;
     padding: 40px;
     background: #fff;
-    color:#000
+    color:#000;
+    border-radius:1%;
+    -webkit-border-radius:1%;
+    -moz-border-radius:1%;
+    -ms-border-radius:1%;
+    -o-border-radius:1%;
 }
 .contact-form h2{
     font-size: 25px;
@@ -1146,6 +1151,13 @@ nav ul{
         font-size: 15px !important;
     }
 
+}
+@media (max-width:753.9px) and (min-width: 540.9px) {
+    #skills .skill-box{
+        width: 100%;
+        margin-left: 10px;
+        gap:10px;
+    }
 }
 @media (max-width: 540px){
     #skills .inner{
