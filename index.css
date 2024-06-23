@@ -9,6 +9,84 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
+/* preloader */
+.center{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #d9c7c7;
+
+}
+.ring{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    animation:  ring 2s linear;
+    -webkit-animation:  ring 2s linear infinite;
+}
+
+@keyframes ring{
+    0%{
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        box-shadow: 1px 5px 2px #e60000;
+    }
+    50%{
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        box-shadow: 1px 5px 2px #18b413;
+}
+    100%{
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    box-shadow: 1px 5px 2px blue;
+}
+}
+.ring:before{
+    position: absolute;
+    content: '';
+    left: 0;
+    top:0;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(255,255,255,0.3);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.center span{
+    color: gray;
+    font-size: 15px;
+    font-family: "Poppins";
+    text-transform: uppercase;
+    line-height: 200px;
+    animation: text 3s ease-in-out infinite;
+    -webkit-animation: text 3s ease-in-out infinite;
+}
+@keyframes text{
+    50%{
+        color:black;
+    }
+}
+  
 body{
     font-family:'Arial','Times New Roman', Times, serif;
     background-color: black;
