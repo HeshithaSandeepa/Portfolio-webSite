@@ -1,19 +1,19 @@
 
 //typed animation
-let typed = new Typed(" .typing",{
-    strings:[" Web Developer.","App Developer.","UI/UX Designer.","Software enginner U.G"],
-    typespeed:100,
-    backSpeed:60,
-    loop:true
+let typed = new Typed(" .typing", {
+    strings: [" Web Developer.", "App Developer.", "UI/UX Designer.", "Software enginner U.G"],
+    typespeed: 100,
+    backSpeed: 60,
+    loop: true
 })
 
 // form email input validate
 // function validateForm() {
 //     let emailInput = document.getElementById('email');
 //     let emailError = document.getElementById('emailError');
-    
+
 //     let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
+
 //     if (!emailRegex.test(emailInput.value)) {
 //         emailError.innerHTML = 'Please enter a valid email address.';
 //     } else {
@@ -57,12 +57,12 @@ document.getElementById('footer-menu').addEventListener('click', function (activ
     let targetId = activeLinkFooter.target.getAttribute('href').substring(1);
 
     // Add the "active" class to the similer link in the navigation bar
-    let navLinkWithFooter= document.querySelector('#menu a[href="#' + targetId + '"]');
+    let navLinkWithFooter = document.querySelector('#menu a[href="#' + targetId + '"]');
     if (navLinkWithFooter) {
         navLinkWithFooter.classList.add('active');
     }
 
-    // go to the relevent section
+    // go to the relevant section
     if (targetId === 'top') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
@@ -75,11 +75,15 @@ document.getElementById('footer-menu').addEventListener('click', function (activ
 // animation in each section
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-        console.log(entry);
         if (entry.isIntersecting) {
+            // Add the animation class
             entry.target.classList.add('show');
-        } else {
-            entry.target.classList.remove('show');
+
+            // Add a permanent visibility class
+            entry.target.classList.add('visible');
+
+            // Stop observing the element after it has been shown
+            observer.unobserve(entry.target);
         }
     });
 });
@@ -95,15 +99,15 @@ const progressbar = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         console.log(entry);
         if (entry.isIntersecting) {
-            entry.target.classList.add('progress-line-after'); 
+            entry.target.classList.add('progress-line-after');
         } else {
-            entry.target.classList.remove('progress-line-after'); 
+            entry.target.classList.remove('progress-line-after');
         }
     });
 });
 
-const progressbarLines = document.querySelectorAll('.progress-line'); 
+const progressbarLines = document.querySelectorAll('.progress-line');
 
 progressbarLines.forEach((el) => {
-    progressbar.observe(el); 
+    progressbar.observe(el);
 });
