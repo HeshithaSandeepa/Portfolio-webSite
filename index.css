@@ -8,7 +8,11 @@
     text-decoration: none;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    scrollbar-width: none;
+
 }
+
+
 
 #all-elements {
     display: none;
