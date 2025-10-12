@@ -146,4 +146,56 @@ skills.forEach(skill => {
     skillsContainer.appendChild(skillCard);
 });
 
+//****************************Scrollspy Logic Start***********************
+// Nav Links සහ Sections තෝරාගැනීම
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll("#menu a");
+
+// window scroll event listener එක එකතු කිරීම
+window.addEventListener("scroll", navHighlighter);
+
+// Navigation bar එකේ උස (height) වැනි අගයක් අඩු කිරීම (උදා: 75px)
+// Link එක කලින් Active කිරීමට.
+const offset = 75;
+
+function navHighlighter() {
+    // වත්මන් scroll position එක ලබා ගැනීම
+    let scrollY = window.pageYOffset;
+
+    sections.forEach(current => {
+        const sectionHeight = current.offsetHeight;
+        // Navigation bar එකේ උස අනුව Top position එක සකස් කිරීම
+        const sectionTop = current.offsetTop - offset;
+        const sectionId = current.getAttribute("id");
+
+        /*
+            වර්තමාන Scroll Position එක, Section එකේ ඉහළ සීමාවට වඩා වැඩිනම් සහ
+            Section එකේ පහළ සීමාවට වඩා අඩු නම්, එය Active Section එක වේ.
+        */
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+
+            // පළමුව සියලු links වලින් active class එක ඉවත් කිරීම
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+            });
+
+            // අදාල Link එක සොයා active class එක එකතු කිරීම
+            // [href*="..."] මගින් href attribute එකේ sectionId අඩංගු link එක තෝරා ගනී
+            document.querySelector("#menu a[href*=" + sectionId + "]").classList.add("active");
+        }
+    });
+
+    // Page එකේ උඩම තැන (Home) සිටින විට Home link එක active කිරීම
+    if (scrollY < offset) {
+        navLinks.forEach(link => {
+            link.classList.remove("active");
+        });
+        document.querySelector("#menu a[href*='header']").classList.add("active");
+    }
+}
+
+// පිටුව load වන විටම Home link එක Active කරන්න
+navHighlighter();
+
+//****************************Scrollspy Logic End***********************
 

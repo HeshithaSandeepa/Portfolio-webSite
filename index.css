@@ -153,7 +153,8 @@ nav ul li a {
     font-size: 17px;
     text-transform: uppercase;
     padding: 7px 1px;
-    /*padding  top and bottom left and right*/
+    position: relative
+        /*padding  top and bottom left and right*/
 }
 
 nav ul li a:hover {
