@@ -72,46 +72,7 @@ document.getElementById('footer-menu').addEventListener('click', function (activ
     }
 });
 
-// animation in each section
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            // Add the animation class
-            entry.target.classList.add('show');
-
-            // Add a permanent visibility class
-            entry.target.classList.add('visible');
-
-            // Stop observing the element after it has been shown
-            observer.unobserve(entry.target);
-        }
-    });
-});
-
-const hiddenElements = document.querySelectorAll('.hidden');
-
-hiddenElements.forEach((el) => {
-    observer.observe(el);
-});
-
-// progress bar
-const progressbar = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        console.log(entry);
-        if (entry.isIntersecting) {
-            entry.target.classList.add('progress-line-after');
-        } else {
-            entry.target.classList.remove('progress-line-after');
-        }
-    });
-});
-
-const progressbarLines = document.querySelectorAll('.progress-line');
-
-progressbarLines.forEach((el) => {
-    progressbar.observe(el);
-});
-
+// --Animation logic moved to animations.js for better organization--
 
 
 //skills
