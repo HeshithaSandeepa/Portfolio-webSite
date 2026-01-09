@@ -88,24 +88,107 @@ const skills = [
     { name: "Tailwind CSS", img: "https://tailwindcss.com/_next/static/media/tailwindcss-mark.d52e9897.svg", level: "beginner" },
     { name: "Figma", img: "./images/figma.png", level: "Intermediate" },
     { name: "PhotoShop", img: "https://logodownload.org/wp-content/uploads/2019/10/adobe-photoshop-logo.png", level: "Beginner" },
-
-
 ];
 
 const skillsContainer = document.getElementById("skills-container");
 
-skills.forEach(skill => {
-    const skillCard = document.createElement("div");
-    skillCard.classList.add("skill-card");
+if (skillsContainer) {
+    skills.forEach(skill => {
+        const skillCard = document.createElement("div");
+        skillCard.classList.add("skill-card");
 
-    skillCard.innerHTML = `
-        <img src="${skill.img}" alt="${skill.name}">
-        <p>${skill.name}</p>
-        <span class="skill-level">${skill.level}</span>
-    `;
+        skillCard.innerHTML = `
+            <img src="${skill.img}" alt="${skill.name}">
+            <p>${skill.name}</p>
+            <span class="skill-level">${skill.level}</span>
+        `;
 
-    skillsContainer.appendChild(skillCard);
-});
+        skillsContainer.appendChild(skillCard);
+    });
+}
+
+// Projects Data
+const projects = [
+    {
+        title: "School Donation website",
+        description: "rasingminds foundation shool donation website",
+        image: "./images/rasingminds.PNG",
+        tags: [
+            { icon: "fa-brands fa-html5" },
+            { icon: "fa-brands fa-css3" },
+            { icon: "fa-brands fa-js-square" },
+            { icon: "fa-brands fa-python" },
+            { icon: "fa-solid fa-database" }
+        ],
+        liveLink: "https://raisingminds.pythonanywhere.com/",
+        githubLink: "https://github.com/Coding-Hamsters/RaisingMinds"
+    },
+    {
+        title: "Portfolio",
+        description: "responsive website using HTML,CSS JavaScript",
+        image: "./images/projecet1.PNG",
+        tags: [
+            { icon: "fa-brands fa-html5" },
+            { icon: "fa-brands fa-css3" },
+            { icon: "fa-brands fa-js-square" }
+        ],
+        liveLink: "https://heshithasandeepa.github.io/Portfolio-webSite/",
+        githubLink: "https://github.com/HeshithaSandeepa/Portfolio-webSite"
+    },
+    {
+        title: "Cyelon Traveler",
+        description: "Android app provide information help for tourism. you can access without internet.",
+        image: "./images/project3.png",
+        tags: [
+            { icon: "fa-brands fa-android" },
+            { icon: "fa-brands fa-java" }
+        ],
+        liveLink: "#",
+        githubLink: "#"
+    },
+    {
+        title: "Calculator",
+        description: "calculator program capable of basic arithmetic operations (+, -, *, /).",
+        image: "./images/cal.PNG",
+        tags: [
+            { icon: "fa-brands fa-html5" },
+            { icon: "fa-brands fa-css3" },
+            { icon: "fa-brands fa-js-square" }
+        ],
+        liveLink: "https://github.com/HeshithaSandeepa/CODSOFT/tree/main/Level-1/CALCULATOR",
+        githubLink: "https://github.com/HeshithaSandeepa/CODSOFT/tree/main/Level-1/CALCULATOR"
+    }
+];
+
+const projectsContainer = document.querySelector(".projects-container");
+
+if (projectsContainer) {
+    projects.forEach(project => {
+        const projectElement = document.createElement("div");
+        projectElement.classList.add("animation-box");
+
+        const tagsHtml = project.tags.map(tag => `<i class="fas ${tag.icon}"></i>`).join(" ");
+
+        projectElement.innerHTML = `
+            <div class="project-box">
+                <img src="${project.image}" alt="${project.title}" class="project-pic" />
+                <h3 class="project-title">${project.title}</h3>
+                <p class="project-details">${project.description}</p>
+                ${tagsHtml}
+                <br>
+                <div class="projects-links">
+                    <a href="${project.liveLink}" target="_blank" class="project-link">
+                        <i class="fas fa-globe"></i>
+                    </a><span> check it out </span>
+                    <a href="${project.githubLink}" target="_blank" class="project-link"> 
+                        <i class="fas fa fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        `;
+        projectsContainer.appendChild(projectElement);
+    });
+}
 
 //****************************Scrollspy Logic Start***********************
 // Nav Links සහ Sections තෝරාගැනීම
